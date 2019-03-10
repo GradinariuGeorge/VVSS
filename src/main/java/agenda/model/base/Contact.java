@@ -14,7 +14,7 @@ public class Contact {
 	}
 	
 	public Contact(String name, String address, String telefon) throws InvalidFormatException{
-		if (!validTelefon(telefon)) throw new InvalidFormatException("Cannot convert", "Invalid phone number");
+		if (!validTelephone(telefon)) throw new InvalidFormatException("Cannot convert", "Invalid phone number");
 		if (!validName(name)) throw new InvalidFormatException("Cannot convert", "Invalid name");
 		if (!validAddress(address)) throw new InvalidFormatException("Cannot convert", "Invalid address");
 		Name = name;
@@ -45,7 +45,7 @@ public class Contact {
 	}
 
 	public void setTelefon(String telefon) throws InvalidFormatException {
-		if (!validTelefon(telefon)) throw new InvalidFormatException("Cannot convert", "Invalid phone number");
+		if (!validTelephone(telefon)) throw new InvalidFormatException("Cannot convert", "Invalid phone number");
 		Telefon = telefon;
 	}
 
@@ -53,7 +53,7 @@ public class Contact {
 	{
 		String[] s = str.split(delim);
 		if (s.length!=4) throw new InvalidFormatException("Cannot convert", "Invalid data");
-		if (!validTelefon(s[2])) throw new InvalidFormatException("Cannot convert", "Invalid phone number");
+		if (!validTelephone(s[2])) throw new InvalidFormatException("Cannot convert", "Invalid phone number");
 		if (!validName(s[0])) throw new InvalidFormatException("Cannot convert", "Invalid name");
 		if (!validAddress(s[1])) throw new InvalidFormatException("Cannot convert", "Invalid address");
 		
@@ -72,24 +72,27 @@ public class Contact {
 		return sb.toString();
 	}
 	
-	private static boolean validName(String str)
+	private static boolean validName(String name)
 	{
 		
-		String[] s = str.split("[\\p{Punct}\\s]+");
+		String[] s = name.split("[\\p{Punct}\\s]+");
 		if (s.length>2) return false;
 		return true;
 	}
 	
-	private static boolean validAddress(String str)
+	private static boolean validAddress(String address)
 	{
-		return true;
+		if(address.length()>0){
+			return true;
+		}
+		return false;
 	}
 	
-	private static boolean validTelefon(String tel)
+	private static boolean validTelephone(String telephone)
 	{
-		String[] s = tel.split("[\\p{Punct}\\s]+");
-		if (tel.charAt(0) == '+' && s.length == 2 ) return true;
-		if (tel.charAt(0) != '0')return false;
+		String[] s = telephone.split("[\\p{Punct}\\s]+");
+		if (telephone.charAt(0) == '+' && s.length == 2 ) return true;
+		if (telephone.charAt(0) != '0')return false;
 		if (s.length != 1) return false;
 		return true;
 	}
