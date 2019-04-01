@@ -75,14 +75,14 @@ public class Contact {
 	private static boolean validName(String name)
 	{
 		
-		String[] s = name.split("[\\p{Punct}\\s]+");
-		if (s.length>2) return false;
-		return true;
+//		String[] s = name.split("[\\p{Punct}\\s]+");
+		if (name.length()>0) return true;
+		return false;
 	}
 	
 	private static boolean validAddress(String address)
 	{
-		if(address.length()>0){
+		if(address.length()>2 && address.length()<=255){
 			return true;
 		}
 		return false;
