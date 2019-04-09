@@ -141,9 +141,14 @@ public class MainClass {
 			Activity act = new Activity(user.getName(), start, end,
 					new LinkedList<Contact>(), description);
 
-			activityRep.addActivity(act);
+			if(activityRep.addActivity(act)){
+				System.out.println("Nu s-a putut adauga\n");
+			}
+			else {
+				System.out.printf("S-a adugat cu succes\n");
+			}
 
-			System.out.printf("S-a adugat cu succes\n");
+
 		} catch (IOException e) {
 			System.out.printf("Eroare de citire: %s\n" + e.getMessage());
 		}

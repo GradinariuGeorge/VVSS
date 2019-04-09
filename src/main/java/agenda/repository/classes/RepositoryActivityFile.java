@@ -64,8 +64,10 @@ public class RepositoryActivityFile implements RepositoryActivity{
 		if ( !conflicts )
 		{
 			activities.add(activity);
+			System.out.println(activities);
 			return true;
 		}
+
 		return false;
 //		for (int i = 0; i< activities.size(); i++)
 //		{

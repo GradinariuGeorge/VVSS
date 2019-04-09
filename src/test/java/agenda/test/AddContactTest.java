@@ -76,6 +76,7 @@ public class AddContactTest {
 	public void testECPValid(){
 		try {
 			con = new Contact("Ion", "Str. Dunarii", "+40733665321");
+			assert(con.getName().equals("Ion"));
 		} catch (InvalidFormatException e) {
 			fail();
 		}
@@ -86,58 +87,65 @@ public class AddContactTest {
 	public void testECPNonValid1(){
 		try {
 			con = new Contact("Ion", "s", "+40733665321");
+			assertTrue(false);
+			assert (con!=null);
 		} catch (InvalidFormatException e) {
-			fail();
+			assertTrue(true);
 		}
-		assertTrue(true);
 	}
 	@Test
 	public void testECPNonValid2(){
 		try {
 			con = new Contact("", "Str. Dunarii", "+40733665321");
+			assertTrue(false);
+
 		} catch (InvalidFormatException e) {
-			fail();
+			assertTrue(true);
+
 		}
-		assertTrue(true);
 	}
 	@Test
 	public void testBVAValid(){
 		try {
 			con = new Contact("IOn", "Sat", "+40733665321");
+			assertTrue(true);
 		} catch (InvalidFormatException e) {
-			fail();
+			assertTrue(false);
 		}
-		assertTrue(true);
 
 	}
 	@Test
 	public void testBVAValid2(){
 		try {
 			con = new Contact("I", "Str. Dunarii", "+40733665321");
+			assertTrue(true);
+
 		} catch (InvalidFormatException e) {
 			fail();
 		}
-		assertTrue(true);
 
 	}
 	@Test
 	public void testBVANonValid1(){
 		try {
 			con = new Contact("Ion", "Sa", "+40733665321");
+			assertTrue(false);
+
 		} catch (InvalidFormatException e) {
-			fail();
+			assertTrue(true);
+
 		}
-		assertTrue(true);
 
 	}
 	@Test
 	public void testBVANonValid2(){
 		try {
 			con = new Contact("Ion", "Str. DunariiggfcgfgfcxadvjhsadvasjhvdjhasBDJSAHBDVHJSAVDHSVDGHADVJHFDAsjyfcdxatyqdfvxsgjhdfqj	ysaVXAYSdcvxjfdyajxvgjzhxvGJAHDFXYajgHXChgfZCXghZCXygjADTYASJDFASygdkjhfjdJFZjDfdjfhasDJFhakdjhJHDV	gfchcvhbvhvcghcgfxhccccgvghggggvgvgvvggvgvgvgvgvgvgvgvgvgvgvgvgvgvgvgvgvgvgvgvgvgvgvgvgvgvdfffffffffffffffffffffffffffffffffffffffffffffhhhgfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", "+40733665321");
+			assertTrue(false);
 		} catch (InvalidFormatException e) {
-			fail();
+			assertTrue(true);
+
 		}
-		assertTrue(true);
 
 	}
 	
