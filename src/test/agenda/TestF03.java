@@ -4,6 +4,7 @@ package agenda;
 import agenda.model.base.Activity;
 import agenda.model.base.Contact;
 import agenda.repository.classes.RepositoryActivityFile;
+import agenda.repository.classes.RepositoryActivityMock;
 import agenda.repository.classes.RepositoryContactFile;
 import agenda.repository.interfaces.RepositoryActivity;
 import agenda.repository.interfaces.RepositoryContact;
@@ -22,8 +23,7 @@ public class TestF03 {
 
     @Before
     public void setUp() throws Exception {
-        RepositoryContact repcon = new RepositoryContactFile();
-        rep = new RepositoryActivityFile(repcon);
+        rep = new RepositoryActivityMock();
     }
 
     @Test

@@ -28,7 +28,6 @@ import static org.junit.Assert.assertTrue;
 
 public class bigbang {
 
-    private Contact con;
     private Activity act;
     private RepositoryActivity rep;
     private RepositoryContact repCon;

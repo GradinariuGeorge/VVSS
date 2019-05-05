@@ -16,12 +16,12 @@ public class AddContactTest {
 
 	private Contact con;
 	private RepositoryContact rep;
-	
+
 	@Before
 	public void setUp() throws Exception {
 //		rep = new RepositoryContactMock();
 	}
-	
+
 //	@Test
 //	public void testCase1()
 //	{
@@ -148,5 +148,5 @@ public class AddContactTest {
 		}
 
 	}
-	
+
 }
