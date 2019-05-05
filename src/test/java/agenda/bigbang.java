@@ -1,15 +1,11 @@
 package agenda;
 
 
-
-import agenda.controller.ActivityController;
 import agenda.controller.ActivityControllerMock;
 import agenda.exceptions.InvalidFormatException;
 import agenda.model.base.Activity;
 import agenda.model.base.Contact;
-import agenda.repository.classes.RepositoryActivityFile;
 import agenda.repository.classes.RepositoryActivityMock;
-import agenda.repository.classes.RepositoryContactFile;
 import agenda.repository.classes.RepositoryContactMock;
 import agenda.repository.interfaces.RepositoryActivity;
 import agenda.repository.interfaces.RepositoryContact;
@@ -37,18 +33,18 @@ public class bigbang {
     @Before
     public void setUp() throws Exception {
         rep = new RepositoryActivityMock();
-        repCon= new RepositoryContactMock();
-        activityController=new ActivityControllerMock(repCon,rep);
+        repCon = new RepositoryContactMock();
+        activityController = new ActivityControllerMock(repCon, rep);
 
     }
 
     @Test
     public void testContact() {
         try {
-            int countController=repCon.count();
+            int countController = repCon.count();
             activityController.addContact("Ion", "sdasdas", "+40733665321");
-            int countControllerAfterSave=repCon.count();
-            assert (countController+1==countControllerAfterSave);
+            int countControllerAfterSave = repCon.count();
+            assert (countController + 1 == countControllerAfterSave);
         } catch (InvalidFormatException e) {
             assert false;
         }
@@ -82,7 +78,7 @@ public class bigbang {
             rep.removeActivity(act);
 
         Calendar c = Calendar.getInstance();
-        c.set(2013, 3 , 20, 12, 00);
+        c.set(2013, 3, 20, 12, 00);
         Date start = c.getTime();
 
         c.set(2013, 3, 20, 12, 30);
@@ -102,10 +98,10 @@ public class bigbang {
     @Test
     public void testBigBang() {
         try {
-            int countController=repCon.count();
+            int countController = repCon.count();
             activityController.addContact("Ion", "sdsad", "+40733665321");
-            int countControllerAfterSave=repCon.count();
-            assert (countController+1==countControllerAfterSave);
+            int countControllerAfterSave = repCon.count();
+            assert (countController + 1 == countControllerAfterSave);
         } catch (InvalidFormatException e) {
             assert false;
         }
@@ -124,10 +120,10 @@ public class bigbang {
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm");
 
         try {
-           boolean result= activityController.adaugActivitate("name2",df.parse("03/20/2015 12:00"), df.parse("03/20/2015 13:00"),"dasdasdasdas");
-           assert (result);
+            boolean result = activityController.adaugActivitate("name2", df.parse("03/20/2015 12:00"), df.parse("03/20/2015 13:00"), "dasdasdasdas");
+            assert (result);
         } catch (ParseException e) {
-           assert false;
+            assert false;
         }
 //        boolean response = false;
 //
@@ -145,8 +141,6 @@ public class bigbang {
 //        assert (rep.getActivities().get(1).getName().equals("name1"));
 
 
-
-
         Calendar c = Calendar.getInstance();
 
         c.set(2015, 02, 20);
@@ -154,7 +148,7 @@ public class bigbang {
 //        List<Activity> result = rep.activitiesOnDate("name1", c.getTime());
 //        assert (result.size() == 1);
 
-        List<Activity> response=activityController.afisActivitate("name2",c.getTime());
-        assert (response.size()==1);
+        List<Activity> response = activityController.afisActivitate("name2", c.getTime());
+        assert (response.size() == 1);
     }
 }

@@ -31,18 +31,18 @@ public class Int_TD {
     @Before
     public void setUp() throws Exception {
         rep = new RepositoryActivityMock();
-        repCon= new RepositoryContactMock();
-        activityController=new ActivityControllerMock(repCon,rep);
+        repCon = new RepositoryContactMock();
+        activityController = new ActivityControllerMock(repCon, rep);
 
     }
 
     @Test
     public void testContact() {
         try {
-            int countController=repCon.count();
+            int countController = repCon.count();
             activityController.addContact("Ion", "sdasdas", "+40733665321");
-            int countControllerAfterSave=repCon.count();
-            assert (countController+1==countControllerAfterSave);
+            int countControllerAfterSave = repCon.count();
+            assert (countController + 1 == countControllerAfterSave);
         } catch (InvalidFormatException e) {
             assert false;
         }
@@ -76,7 +76,7 @@ public class Int_TD {
             rep.removeActivity(act);
 
         Calendar c = Calendar.getInstance();
-        c.set(2013, 3 , 20, 12, 00);
+        c.set(2013, 3, 20, 12, 00);
         Date start = c.getTime();
 
         c.set(2013, 3, 20, 12, 30);
@@ -96,10 +96,10 @@ public class Int_TD {
     @Test
     public void testA() {
         try {
-            int countController=repCon.count();
+            int countController = repCon.count();
             activityController.addContact("Ion", "sdsad", "+40733665321");
-            int countControllerAfterSave=repCon.count();
-            assert (countController+1==countControllerAfterSave);
+            int countControllerAfterSave = repCon.count();
+            assert (countController + 1 == countControllerAfterSave);
         } catch (InvalidFormatException e) {
             assert false;
         }
@@ -108,29 +108,28 @@ public class Int_TD {
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm");
 
         try {
-            boolean result= activityController.adaugActivitate("name2",df.parse("03/20/2015 12:00"), df.parse("03/20/2015 13:00"),"dasdasdasdas");
+            boolean result = activityController.adaugActivitate("name2", df.parse("03/20/2015 12:00"), df.parse("03/20/2015 13:00"), "dasdasdasdas");
             assert (result);
         } catch (ParseException e) {
             assert false;
         }
 
 
-
         Calendar c = Calendar.getInstance();
 
         c.set(2015, 02, 20);
 
-        List<Activity> response=activityController.afisActivitate("name2",c.getTime());
-        assert (response.size()==1);
+        List<Activity> response = activityController.afisActivitate("name2", c.getTime());
+        assert (response.size() == 1);
     }
 
     @Test
     public void testAB() {
         try {
-            int countController=repCon.count();
+            int countController = repCon.count();
             activityController.addContact("Ion", "sdsad", "+40733665321");
-            int countControllerAfterSave=repCon.count();
-            assert (countController+1==countControllerAfterSave);
+            int countControllerAfterSave = repCon.count();
+            assert (countController + 1 == countControllerAfterSave);
         } catch (InvalidFormatException e) {
             assert false;
         }
@@ -139,20 +138,21 @@ public class Int_TD {
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm");
 
         try {
-            boolean result= activityController.adaugActivitate("name2",df.parse("03/20/2015 12:00"), df.parse("03/20/2015 13:00"),"dasdasdasdas");
+            boolean result = activityController.adaugActivitate("name2", df.parse("03/20/2015 12:00"), df.parse("03/20/2015 13:00"), "dasdasdasdas");
             assert (result);
         } catch (ParseException e) {
             assert false;
         }
 
     }
+
     @Test
     public void testBigBang() {
         try {
-            int countController=repCon.count();
+            int countController = repCon.count();
             activityController.addContact("Ion", "sdsad", "+40733665321");
-            int countControllerAfterSave=repCon.count();
-            assert (countController+1==countControllerAfterSave);
+            int countControllerAfterSave = repCon.count();
+            assert (countController + 1 == countControllerAfterSave);
         } catch (InvalidFormatException e) {
             assert false;
         }
@@ -162,7 +162,7 @@ public class Int_TD {
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm");
 
         try {
-            boolean result= activityController.adaugActivitate("name2",df.parse("03/20/2015 12:00"), df.parse("03/20/2015 13:00"),"dasdasdasdas");
+            boolean result = activityController.adaugActivitate("name2", df.parse("03/20/2015 12:00"), df.parse("03/20/2015 13:00"), "dasdasdasdas");
             assert (result);
         } catch (ParseException e) {
             assert false;
@@ -174,7 +174,7 @@ public class Int_TD {
         c.set(2015, 02, 20);
 
 
-        List<Activity> response=activityController.afisActivitate("name2",c.getTime());
-        assert (response.size()==1);
+        List<Activity> response = activityController.afisActivitate("name2", c.getTime());
+        assert (response.size() == 1);
     }
 }

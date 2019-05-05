@@ -1,13 +1,9 @@
 package agenda;
 
-
 import agenda.model.base.Activity;
 import agenda.model.base.Contact;
-import agenda.repository.classes.RepositoryActivityFile;
 import agenda.repository.classes.RepositoryActivityMock;
-import agenda.repository.classes.RepositoryContactFile;
 import agenda.repository.interfaces.RepositoryActivity;
-import agenda.repository.interfaces.RepositoryContact;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -55,7 +51,7 @@ public class TestF03 {
             rep.removeActivity(act);
 
         try {
-            rep.activitiesOnDate("name1", (Date)(Object)"ASD");
+            rep.activitiesOnDate("name1", (Date) (Object) "ASD");
             assert false;
         } catch (Exception e) {
             assertTrue(true);
