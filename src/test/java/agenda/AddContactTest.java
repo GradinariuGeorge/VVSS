@@ -17,59 +17,7 @@ public class AddContactTest {
 
 	@Before
 	public void setUp() throws Exception {
-//		rep = new RepositoryContactMock();
 	}
-
-//	@Test
-//	public void testCase1()
-//	{
-//		try {
-//			con = new Contact("name", "address1", "+4071122334455");
-//		} catch (InvalidFormatException e) {
-//			assertTrue(false);
-//		}
-//		//int n = rep.count();
-//		rep.addContact(con);
-//		for(Contact c : rep.getContacts())
-//			if (c.equals(con))
-//			{
-//				assertTrue(true);
-//				break;
-//			}
-//		//assertTrue(n+1 == rep.count());
-//	}
-//
-//	@Test
-//	public void testCase2()
-//	{
-//		try{
-//			rep.addContact((Contact) new Object());
-//		}
-//		catch(Exception e)
-//		{
-//			assertTrue(true);
-//		}
-//	}
-//
-//	@Test
-//	public void testCase3()
-//	{
-//		for(Contact c : rep.getContacts())
-//			rep.removeContact(c);
-//
-//		try {
-//			con = new Contact("name", "address1", "+071122334455");
-//			rep.addContact(con);
-//		} catch (InvalidFormatException e) {
-//			assertTrue(false);
-//		}
-//		int n  = rep.count();
-//		if (n == 1)
-//			if (con.equals(rep.getContacts().get(0))) assertTrue(true);
-//			else assertTrue(false);
-//		else assertTrue(false);
-//	}
-
 	@Test
 	public void testECPValid(){
 		try {
@@ -82,7 +30,7 @@ public class AddContactTest {
 
 	}
 	@Test
-	public void testECPNonValid(){
+	public void testECPNonValid1(){
 		try {
 			con = new Contact("Ion", "s", "+40733665321");
 			assert false;
@@ -124,7 +72,7 @@ public class AddContactTest {
 
 	}
 	@Test
-	public void testBVANonValid(){
+	public void testBVANonValid1(){
 		try {
 			con = new Contact("Ion", "Sa", "+40733665321");
 			assert false;
