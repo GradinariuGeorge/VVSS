@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+import agenda.controller.ActivityController;
 import agenda.exceptions.InvalidFormatException;
 
 import agenda.model.base.Activity;
@@ -26,7 +27,7 @@ import agenda.repository.interfaces.RepositoryUser;
 //F03.	 generarea unui raport cu activitatile pe care le are utilizatorul (nume, user, parola) la o anumita data, ordonate dupa ora de inceput.
 
 public class MainClass {
-
+	private static ActivityController activityController=new ActivityController();
 	public static void main(String[] args) {
 		BufferedReader in = null;
 		try {
@@ -93,16 +94,7 @@ public class MainClass {
 
 			System.out.println("Activitatile din ziua " + d.toString() + ": ");
 
-			List<Activity> act = activityRep
-					.activitiesOnDate(user.getName(), d);
-			for (Activity a : act) {
-				System.out.printf("%s - %s: %s - %s with: ", a.getStart()
-						.toString(), a.getDuration().toString(), a
-						.getDescription());
-				for (Contact con : a.getContacts())
-					System.out.printf("%s, ", con.getName());
-				System.out.println();
-			}
+			activityController.afisActivitate(user.getName(),d);
 		} catch (IOException e) {
 			System.out.printf("Eroare de citire: %s\n" + e.getMessage());
 		}
@@ -138,10 +130,8 @@ public class MainClass {
 					Integer.parseInt(timeE.split(":")[1]));
 			Date end = c.getTime();
 
-			Activity act = new Activity(user.getName(), start, end,
-					new LinkedList<Contact>(), description);
 
-			if(activityRep.addActivity(act)){
+			if(activityController.adaugActivitate(user.getName(),start,end,description)){
 				System.out.println("Nu s-a putut adauga\n");
 			}
 			else {
@@ -166,10 +156,8 @@ public class MainClass {
 			String adress = in.readLine();
 			System.out.printf("Numar de telefon: ");
 			String telefon = in.readLine();
-			
-			Contact c = new Contact(name, adress, telefon);
 
-			contactRep.addContact(c);
+			activityController.addContact(name,adress,telefon);
 
 			System.out.printf("S-a adugat cu succes\n");
 		} catch (IOException e) {

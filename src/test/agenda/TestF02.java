@@ -1,4 +1,4 @@
-package agenda.test;
+package agenda;
 
 import agenda.model.base.Activity;
 import agenda.repository.classes.RepositoryActivityMock;

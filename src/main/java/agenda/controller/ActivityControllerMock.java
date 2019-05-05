@@ -4,24 +4,24 @@ import agenda.exceptions.InvalidFormatException;
 import agenda.model.base.Activity;
 import agenda.model.base.Contact;
 import agenda.repository.classes.RepositoryActivityFile;
+import agenda.repository.classes.RepositoryActivityMock;
 import agenda.repository.classes.RepositoryContactFile;
-import agenda.repository.classes.RepositoryUserFile;
+import agenda.repository.classes.RepositoryContactMock;
 import agenda.repository.interfaces.RepositoryActivity;
 import agenda.repository.interfaces.RepositoryContact;
-import agenda.repository.interfaces.RepositoryUser;
 
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ActivityController {
+public class ActivityControllerMock {
     private RepositoryContact contactRep;
     private RepositoryActivity activityRep ;
 
-    public ActivityController(){
+    public ActivityControllerMock(RepositoryContact repositoryContactMock, RepositoryActivity repositoryActivityMock){
         try {
-            this.contactRep=new RepositoryContactFile();
-            this.activityRep=new RepositoryActivityFile(contactRep);
+            this.contactRep=repositoryContactMock;
+            this.activityRep=repositoryActivityMock;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -43,17 +43,10 @@ public class ActivityController {
         return activityRep.addActivity(act);
 
     }
-    public void afisActivitate(String name , Date d){
+    public List<Activity> afisActivitate(String name , Date d){
         List<Activity> act = activityRep
                 .activitiesOnDate(name, d);
-        for (Activity a : act) {
-            System.out.printf("%s - %s: %s - %s with: ", a.getStart()
-                    .toString(), a.getDuration().toString(), a
-                    .getDescription());
-            for (Contact con : a.getContacts())
-                System.out.printf("%s, ", con.getName());
-            System.out.println();
-        }
+        return act;
 
     }
 }

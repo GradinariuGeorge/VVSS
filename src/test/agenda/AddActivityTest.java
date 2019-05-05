@@ -1,4 +1,4 @@
-package agenda.test;
+package agenda;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
