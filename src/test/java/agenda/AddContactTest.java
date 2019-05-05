@@ -1,15 +1,13 @@
 package agenda;
 
-import static org.junit.Assert.*;
-
+import agenda.exceptions.InvalidFormatException;
+import agenda.model.base.Contact;
+import agenda.repository.interfaces.RepositoryContact;
 import org.junit.Before;
 import org.junit.Test;
 
-import agenda.exceptions.InvalidFormatException;
-
-import agenda.model.base.Contact;
-import agenda.repository.classes.RepositoryContactMock;
-import agenda.repository.interfaces.RepositoryContact;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 
 public class AddContactTest {
