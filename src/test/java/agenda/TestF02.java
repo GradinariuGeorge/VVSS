@@ -23,7 +23,7 @@ public class TestF02 {
     }
 
     @Test
-    public void testCase_P05() {
+    public void testCaseValid() {
         rep.count();
         boolean response = false;
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm");
@@ -44,7 +44,7 @@ public class TestF02 {
     }
 
     @Test
-    public void testCase2_P02() {
+    public void testCaseNonValid() {
         boolean response1 = false;
         boolean response2 = false;
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm");
