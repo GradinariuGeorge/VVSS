@@ -29,7 +29,7 @@ public class AddContactTest {
 		assertTrue(true);
 
 	}
-	@Test
+	@Test(expected = InvalidFormatException.class)
 	public void testECPNonValid1(){
 		try {
 			con = new Contact("Ion", "s", "+40733665321");
@@ -71,7 +71,7 @@ public class AddContactTest {
 		}
 
 	}
-	@Test
+	@Test(expected = InvalidFormatException.class)
 	public void testBVANonValid1(){
 		try {
 			con = new Contact("Ion", "Sa", "+40733665321");
