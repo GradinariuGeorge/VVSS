@@ -3,6 +3,7 @@ package agenda;
 import agenda.exceptions.InvalidFormatException;
 import agenda.model.base.Contact;
 import agenda.repository.interfaces.RepositoryContact;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -30,14 +31,9 @@ public class AddContactTest {
 
 	}
 	@Test(expected = InvalidFormatException.class)
-	public void testECPNonValid1(){
-		try {
+	public void testECPNonValid1() throws InvalidFormatException {
 			con = new Contact("Ion", "s", "+40733665321");
-			assert false;
 			assert (con!=null);
-		} catch (InvalidFormatException e) {
-			assert true;
-		}
 	}
 	@Test
 	public void testECPNonValid2(){
@@ -72,15 +68,9 @@ public class AddContactTest {
 
 	}
 	@Test(expected = InvalidFormatException.class)
-	public void testBVANonValid1(){
-		try {
+	public void testBVANonValid1() throws InvalidFormatException {
 			con = new Contact("Ion", "Sa", "+40733665321");
-			assert false;
 
-		} catch (InvalidFormatException e) {
-			assert true;
-
-		}
 
 	}
 	@Test
